@@ -1,5 +1,7 @@
 # PyQGIS_2nd_edition
 
+Instructor: Manuel Campagnolo, ISA/ULisboa
+
 Notice: the local organization of files should be as described below (Windows: please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
 
     * input: input data sets for class exercises (e.g. C:\users\my_user\Documents\PyQGIS\input): where input files should be stored
@@ -18,12 +20,10 @@ Notice: the local organization of files should be as described below (Windows: p
 
 # Session 2: Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table).
 
-    Problem: Write new solution for the problem of session 1 using temporary layers: see script in the scripts folder
-    Change symbology for the resulting layer:
-        Input data: The layer that is the input of this new problem can be found n the Input folder
-        The scripts can be found in the scripts folder
-            session_2_v1_single_symbol_legend.py
-            session_2_v2_graduated_legend.py
+* Problem: Write new solution for the problem of session 1 using temporary layers: see script in the scripts folder
+* Change symbology for the resulting layer:
+   - Input data: The layer that is the input of this new problem can be found in the Input folder
+   - The scripts can be found in the scripts folder: `session_2_v1_single_symbol_legend.py` and `session_2_v2_graduated_legend.py`
 
 Session 3:
 Part 1: Use dictionary to define legend; Create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
