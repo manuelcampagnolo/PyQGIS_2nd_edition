@@ -2,12 +2,11 @@
 
 Instructor: Manuel Campagnolo, ISA/ULisboa
 
-Notice: the local organization of files should be as described below (Windows: please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
+Notice: the local organization of files should be as described below for Windows (please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
 
-    - input: input data sets for class exercises (e.g. C:\users\my_user\Documents\PyQGIS\input): where input files should be stored
-    - scripts: where python scripts should go (e.g. C:\users\my_user\Documents\PyQGIS\scripts):where Python scripts should be stored
-    - temp: temporary folder for outputs (e.g. C:\users\my_user\Documents\PyQGIS\temp):where intermediate and output files should be written
-
+- input: input data sets for class exercises (e.g. `C:\users\my_user\Documents\PyQGIS\input`): where input files should be stored
+- scripts: where python scripts should go (e.g. `C:\users\my_user\Documents\PyQGIS\scripts`): where Python scripts should be stored
+- temp: temporary folder for outputs (e.g. `C:\users\my_user\Documents\PyQGIS\temp`): where intermediate and output files should be written
 
 # Session 1: First example; using processing and history to obtain commands for the script; using variables and file paths
 
