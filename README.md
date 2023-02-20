@@ -26,17 +26,23 @@ Notice: the local organization of files should be as described below (Windows: p
    - The scripts can be found in the scripts folder: `session_2_v1_single_symbol_legend.py` and `session_2_v2_graduated_legend.py`
 
 # Session 3:
-## Part 1: Use dictionary to define legend; Create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
+## Part 1: Use dictionary to define legend 
+
+Create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
 
 * Input data: As before, The layer that is the input for this  problem can be found in the Input folder Scripts in the scripts folder: `session_2_v3_graduated_legend_with dictionary.py`, `session_2_v4_define_function_for_legend_with_dictionary_as_argument.py` and `session_2_v5_load_auxiliary_functions.py` (For keeping auxiliary functions in separate file)
 
-## Part 2: Re-use the auxiliary functions above for a new data set. The data is the NUTS (Nomenclature of territorial units for statistics) map for Europe. The script allows to choose the NUTS level that one wants to draw. All features with the same country name will be represented with the same color in the legend. Colors are random, but the user can choose the range of RGB to create lighter or darker colors.
+## Part 2: Re-use the auxiliary functions above for a new data set
+
+The data is the NUTS (Nomenclature of territorial units for statistics) map for Europe. The script allows to choose the NUTS level that one wants to draw. All features with the same country name will be represented with the same color in the legend. Colors are random, but the user can choose the range of RGB to create lighter or darker colors.
 
 * Input data: NUTS map from https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts. The shapefile files are available in  the Input folder.
 * Scripts in in the scripts folder: `session_3_v1_NUTS_create_dictionary_apply_legend_function.py`
 * There is a challenge at the end of the script: define new function that creates the dictionary and the symbology
 
-## Part 3: Re-write the script `session_1_v4_use_temporary_outputs.py` by creating new functions in `auxiliary_functions.py` and creating new script `session_1_v6_simplify_s1v4_by_calling_functions.py`. 
+## Part 3: Re-write the script `session_1_v4_use_temporary_outputs.py`
+
+Simplify the script by creating new functions in `auxiliary_functions.py` and creating new script `session_1_v6_simplify_s1v4_by_calling_functions.py`. 
 
 * The added functions are: `my_clean_project`; `my_add_vector_layer`; `my_processing_run`; `my_remove_layer`
 * Exercise suggestion: replace the code below in script `session_3_v1_NUTS_create_dictionary_apply_legend_function.py` by calls to the new functions in `auxiliary_functions.py`: you should be able to do that with 3 or 4 lines of code to replace the whole code below.
@@ -105,84 +111,66 @@ Exercise suggestion:
    - landUse_invalid_features.gpkg : data set with invalid features
    - Data base CascaisZoning.gpkg
 * Scripts
-        my_index_search_strings_in_files_regex.py
-        session_6_3_a_vector_layer_clone_check_and_fix_features_validity.py
-        session_7-a_create_geopackage_from_files.py
-        session_7_b_Cascais_simple_example_of_SQL_query_over_geopackage.py
-        revised auxiliary_functions.py
+```
+my_index_search_strings_in_files_regex.py
+session_6_3_a_vector_layer_clone_check_and_fix_features_validity.py
+session_7-a_create_geopackage_from_files.py
+session_7_b_Cascais_simple_example_of_SQL_query_over_geopackage.py
+revised auxiliary_functions.py
+```
 
-Session 8:
-Doing SQL queries within Python script
-Converting SQL query result into a new vector layer
-Adding new layer to existing geopackage
-Solving a zoning problem over Cascais
+# Session 8: Doing SQL queries within Python script; Converting SQL query result into a new vector layer; Adding new layer to existing geopackage; Solving a zoning problem over Cascais
 
-    Scripts
-        session_8_a_v1_Cascais_first_examples_SQL_queries_.py
-        session_8_a_v2_Cascais_first_examples_SQL_queries_with_function.py
-        session_8_b_Cascais_exaamples_SQL_queries_ST_intersect_ORDER_BY.py
-        session_8_c_Cascais_example_ST_buffer_create_new_layer_add_layer_to_geopackage.py
-        revised auxiliary_functions.py
-    Documents in 'Figures and other course documentation'
-        Spatial Analysis Problem Cascais
-        Cascais Zoning Diagram Soil Productivity : diagram describing SQL query
-        Cascais Zoning Diagram Road Buffer: diagram describing SQL query
-
+* Scripts
+```
+session_8_a_v1_Cascais_first_examples_SQL_queries_.py
+session_8_a_v2_Cascais_first_examples_SQL_queries_with_function.py
+session_8_b_Cascais_exaamples_SQL_queries_ST_intersect_ORDER_BY.py
+session_8_c_Cascais_example_ST_buffer_create_new_layer_add_layer_to_geopackage.py
+revised auxiliary_functions.py
+ ```
+ 
+* Documents in 'Figures and other course documentation': Spatial Analysis Problem Cascais; Cascais Zoning Diagram Soil Productivity : diagram describing SQL query; Cascais Zoning Diagram Road Buffer: diagram describing SQL query
 
 Assignement: the Cascais Zoning Problem. The problem is described in this document. The goal is to solve the Zoning problem for Cascais using the information in the CascaisZoning.gpkg geopackage available in the 'input' folder.
 
 Suggestions:
-
-1. Look at the script "session_1_v6_simplify_s1v4_by_calling_functions.py" to see how you can use the functions that are already defined to run tools of processing toolbox and make your code short and clear
-
-2. First run the function you need in the QGIS interface from Processing toolbox, and then look at "History" and copy the script that is there and adapt it to look something like this -- the functions you need are in "auxiliary_functions.py":
-
+1. Look at the script `session_1_v6_simplify_s1v4_by_calling_functions.py` to see how you can use the functions that are already defined to run tools of processing toolbox and make your code short and clear;
+2. First run the function you need in the QGIS interface from Processing toolbox, and then look at "History" and copy the script that is there and adapt it to look something like this -- the functions you need are in `auxiliary_functions.py`:
+```
 dict_params={'OVERLAY':'my overlay layer name'}
 mylayer=my_processing_run("native:clip",'my input layer name',dict_params,'my output layer name')
-
-3. You can remove layers you don't need anymore with
-
-my_remove_layer('name of the layer to be removed')
-
+```
+3. You can remove layers you don't need anymore with `my_remove_layer('name of the layer to be removed')`
 
 4. You should be able to solve the whole problem just with operations from the Processing toolbox, but you can use other options if you want
-5. Since the data are all in a geopackage, to open simple tables you don't need to go through the more complicated details needed to open a csv or txt file: you just load the layer from the geopackage as discussed in the script "session_7_a_create_geopackage_from_files.py"
+5. Since the data are all in a geopackage, to open simple tables you don't need to go through the more complicated details needed to open a csv or txt file: you just load the layer from the geopackage as discussed in the script `session_7_a_create_geopackage_from_files.py`
 
-Session 9:
-A resolution for the Cascais Zoning problem just using operations from the processing Toolbox
-New script replacing some operations by one SQL query
-Raster data:
-(1) Read and render multiband rasters with a script; Export raster
-(2) Operate on bands with raster calculator and create a legend
-(3) Convert data into a numpy array and analize
-(4) Identify no-data values.
+# Session 9: A resolution for the Cascais Zoning problem just using operations from the processing Toolbox; New script replacing some operations by one SQL query; Raster data: (1) Read and render multiband rasters with a script; Export raster; (2) Operate on bands with raster calculator and create a legend; (3) Convert data into a numpy array and analize; (4) Identify no-data values.
 
-    Data:
-        Multiband raster 'Cropped_S2A-T29SNB-B2348-2021-8-22.tif' a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
-        'ndvi.tif': a single band raster derived from the data set above
-    Scripts
-        Scripts for the Cascais Zoning problem
-        session_9_a_read_and_render_multiband_raster.py
-        session_9_b_raster_calculator_write_rlayer_to_tif_create_legend.py
-        session_9_c_create_raster_nodatavalue_histogram_matplotlib.py
-        revised auxiliary_functions.py
-    Documents in the 'Figures and other course documentation' folder:
-        Overviiew of procedures to read/write vector data and raster data with PyQGIS scripts
-        Overview of PyQGIS objects for legends of vector and raster datasets.
+* Data:
+    - Multiband raster `Cropped_S2A-T29SNB-B2348-2021-8-22.tif` a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
+    - `ndvi.tif`: a single band raster derived from the data set above
+* Scripts
+```
+Scripts for the Cascais Zoning problem
+session_9_a_read_and_render_multiband_raster.py
+session_9_b_raster_calculator_write_rlayer_to_tif_create_legend.py
+session_9_c_create_raster_nodatavalue_histogram_matplotlib.py
+revised auxiliary_functions.py
+```
+* Documents in the 'Figures and other course documentation' folder:
+    - Overview of procedures to read/write vector data and raster data with PyQGIS scripts
+    - Overview of PyQGIS objects for legends of vector and raster datasets.
 
 
-Session 10:
-Extract raster pixel values as a numpy array with gdal
-Replace raster nodata value by numpy.nan (not a number)
-Use MatPlotLib to build an histogram of raster values
-Manipulate numpy array using numpy and other packages (e.g. sklearn, a package for machine learning)
-Convert array back to raster layer and tif file with gdal
-Access on-line data (download and unzip files, access with XYZ, WMS and WFS protocols) using a Python script in QGIS.
+# Session 10: Extract raster pixel values as a numpy array with gdal; Replace raster nodata value by numpy.nan (not a number);  Use MatPlotLib to build an histogram of raster values;  Manipulate numpy array using numpy and other packages (e.g. sklearn, a package for machine learning);  Convert array back to raster layer and tif file with gdal;  Access on-line data (download and unzip files, access with XYZ, WMS and WFS protocols) using a Python script in QGIS.
 
-    Data:
-        Multiband raster 'Cropped_S2A-T29SNB-B2348-2021-8-22.tif' a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
-        'ndvi.tif': a single band raster derived from the data set above
-    Scripts
+* Data:
+    - Multiband raster `Cropped_S2A-T29SNB-B2348-2021-8-22.tif` a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
+    - `ndvi.tif`: a single band raster derived from the data set above
+* Scripts
+```
         session_9_c_create_raster_nodatavalue_histogram_matplotlib.py
         session_10_a_read_multiband_convert_to_array.py
         session_10_b_v1_read_multiband_convert_to_array_k_means_export_as_raster.py
@@ -190,4 +178,4 @@ Access on-line data (download and unzip files, access with XYZ, WMS and WFS prot
         session_10_c_read_multiband_convert_to_array_add_ndvi_k_means_export_as_raster.py
         session_10_d_read_datasets_wms_wfs_unzip.py
         revised auxiliary_functions.py
-
+```
