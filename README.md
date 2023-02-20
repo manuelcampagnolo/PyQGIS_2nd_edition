@@ -4,16 +4,16 @@ Instructor: Manuel Campagnolo, ISA/ULisboa
 
 Notice: the local organization of files should be as described below (Windows: please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
 
-    * input: input data sets for class exercises (e.g. C:\users\my_user\Documents\PyQGIS\input): where input files should be stored
-    * scripts: where python scripts should go (e.g. C:\users\my_user\Documents\PyQGIS\scripts):where Python scripts should be stored
-    * temp: temporary folder for outputs (e.g. C:\users\my_user\Documents\PyQGIS\temp):where intermediate and output files should be written
+    - input: input data sets for class exercises (e.g. C:\users\my_user\Documents\PyQGIS\input): where input files should be stored
+    - scripts: where python scripts should go (e.g. C:\users\my_user\Documents\PyQGIS\scripts):where Python scripts should be stored
+    - temp: temporary folder for outputs (e.g. C:\users\my_user\Documents\PyQGIS\temp):where intermediate and output files should be written
 
 
 # Session 1: First example; using processing and history to obtain commands for the script; using variables and file paths
 
-  * Input data: Vector geografic data sets representing a road (RVFundamental.gpkg) and a protection area for wild fires (RPFGC_PPSM.gkpk). See this map and the intended vegetation profile from Manual da Rede Primária.
-  * Problem: determine two road buffers: one interior buffer within distance D of the road; one exterior buffer to fill the rest of the protection area. Both buffers need to be contained within the protection area. Then, create a single data set containing both buffers with an attribute that takes value "interior" and "exterior". See operations diagram for the problem.
-  * Extensions of the problem: (1) Use a variable for D instead of a fixed value; (2) use variables for the folder and file names; (3) add output to interface as a QGIS layer; (4) clear QGIS layers; (5) Solve the more realistic problem with 3 regions instead of 2.
+* Input data: Vector geografic data sets representing a road (RVFundamental.gpkg) and a protection area for wild fires (RPFGC_PPSM.gkpk). See this map and the intended vegetation profile from Manual da Rede Primária.
+* Problem: determine two road buffers: one interior buffer within distance D of the road; one exterior buffer to fill the rest of the protection area. Both buffers need to be contained within the protection area. Then, create a single data set containing both buffers with an attribute that takes value "interior" and "exterior". See operations diagram for the problem.
+* Extensions of the problem: (1) Use a variable for D instead of a fixed value; (2) use variables for the folder and file names; (3) add output to interface as a QGIS layer; (4) clear QGIS layers; (5) Solve the more realistic problem with 3 regions instead of 2.
   * Extra reading:
     - See "Using processing algorithms from the console" from QGIS documentation
     - The QgsProject class from QGIS documentation
@@ -28,7 +28,7 @@ Notice: the local organization of files should be as described below (Windows: p
 # Session 3:
 ## Part 1: Use dictionary to define legend; Create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
 
-*Input data: As before, The layer that is the input for this  problem can be found in the Input folder Scripts in the scripts folder: `session_2_v3_graduated_legend_with dictionary.py`, `session_2_v4_define_function_for_legend_with_dictionary_as_argument.py` and `session_2_v5_load_auxiliary_functions.py` (For keeping auxiliary functions in separate file)
+* Input data: As before, The layer that is the input for this  problem can be found in the Input folder Scripts in the scripts folder: `session_2_v3_graduated_legend_with dictionary.py`, `session_2_v4_define_function_for_legend_with_dictionary_as_argument.py` and `session_2_v5_load_auxiliary_functions.py` (For keeping auxiliary functions in separate file)
 
 ## Part 2: Re-use the auxiliary functions above for a new data set. The data is the NUTS (Nomenclature of territorial units for statistics) map for Europe. The script allows to choose the NUTS level that one wants to draw. All features with the same country name will be represented with the same color in the legend. Colors are random, but the user can choose the range of RGB to create lighter or darker colors.
 
@@ -38,7 +38,7 @@ Notice: the local organization of files should be as described below (Windows: p
 
 ## Part 3: Re-write the script `session_1_v4_use_temporary_outputs.py` by creating new functions in `auxiliary_functions.py` and creating new script `session_1_v6_simplify_s1v4_by_calling_functions.py`. 
 
-*The added functions are: my_clean_project; # my_add_vector_layer; # my_processing_run; # my_remove_layer
+* The added functions are: `my_clean_project`; `my_add_vector_layer`; `my_processing_run`; `my_remove_layer`
 * Exercise suggestion: replace the code below in script `session_3_v1_NUTS_create_dictionary_apply_legend_function.py` by calls to the new functions in `auxiliary_functions.py`: you should be able to do that with 3 or 4 lines of code to replace the whole code below.
 
 ```         
@@ -62,73 +62,49 @@ myproject.addMapLayer(mylayer)
 
 # Session 4: Converting blocks of code into functions; modularity. Exemple with a function to build a dictionary and another function to apply that dictionary to create a graduated symbology for the NUTS data set. Using a matplotlib colormap. Miscelaneous: script to find strings in files (os module and regular expressions: re module). Message boxes in PyQGIS.
 
-    Input data: NUTS data
-    Scripts in the scripts folder
-        For the graduated legend for the NUTS units' area: see in scripts folder
-            session_4_v1_NUTS_graduated_legend_color_ramp_from_matplotlib_no_dict.py
-            session_4_v2_NUTS_graduated_legend_color_ramp_from_matplotlib_with_dict.py
-            session_4_v3_NUTS_graduated_legend_color_ramp_from_matplotlib_with_functions.py
-            auxiliary_functions.py
-        Other: search_string_in_files.py ; remove_files_message_boxes.py ; basic_example_matplotlib.py
+* Input data: NUTS data
+* Scripts in the scripts folder
+   - For the graduated legend for the NUTS units' area: see in scripts folder: `session_4_v1_NUTS_graduated_legend_color_ramp_from_matplotlib_no_dict.py` `session_4_v2_NUTS_graduated_legend_color_ramp_from_matplotlib_with_dict.py`, `session_4_v3_NUTS_graduated_legend_color_ramp_from_matplotlib_with_functions.py`, `auxiliary_functions.py`
+   - Other: `search_string_in_files.py` ; `remove_files_message_boxes.py` ; `basic_example_matplotlib.py`
 
 Exercise suggestions:
+* (easy) create dictionary for the NUTS data set to define a graduated legend with 4 classes and respective labels that you choose "by hand". Then, call function `create_graduated_legend` (in `auxiliary_functions.py`) to create the legend.
+* (more complex) Create a new function, in alternative to `create_graduated_legend_dict`, but with the same arguments `values,colormap,myopacity` that uses Sturges rule to determine the approximate number of classes to consider and define classes of equal amplitude for the legend. The output of this new function should be a dictionary (analogous to the output of `create_graduated_legend_dict`)
 
-    (easy) create dictionary for the NUTS data set to define a graduated legend with 4 classes and respective labels that you choose "by hand". Then, call function "create_graduated_legend" (in auxiliary_functions.py") to create the legend.
-    (more complex) Create a new function, in alternative to "create_graduated_legend_dict", but with the same arguments "values,colormap,myopacity" that uses Sturges rule to determine the approximate number of classes to consider; and define classes of equal amplitude for the legend. The output of this new function should be a dictionary (analogous to the output of create_graduated_legend_dict)
-
-Session 5:
-Dialog boxes to interact with the user;
-Read simple tables (csv, txt) .
-Iterate through features;
-Create new attributes (aka fields);
-Compute new attributes;
-Join by attribute
-
-    Data sets: CAOP map (Portuguese administrative units), Milk production table from INE (Portuguese official statistics institute) , all in the Input folder
-    Scripts in the scripts folder
-        basic_examples_QInputDialog_and_QMessageBox.py
-        session_5_v1_INE_read_csv_file_join_layers_by_attributes.py
-        revised auxiliary_functions.py
+# Session 5: Dialog boxes to interact with the user; Read simple tables (csv, txt);  Iterate through features; Create new attributes (aka fields); Compute new attributes; Join by attribute
+* Data sets: CAOP map (Portuguese administrative units), Milk production table from INE (Portuguese official statistics institute) , all in the Input folder
+* Scripts in the scripts folder: `basic_examples_QInputDialog_and_QMessageBox.py`; `session_5_v1_INE_read_csv_file_join_layers_by_attributes.py`; `revised auxiliary_functions.py`
 
 Exercise suggestion:
+* (easy) Create a scritp that reads the NUTS data set and confirms that for all features, the attribute `LEVL_CODE` is the number of characters in the attribute `NUTS_ID` plus 2. Use iterator over `mylayer.getFeatures()` to check that this is true for all features.
 
-    (easy) Create a scritp that reads the NUTS data set and confirms that for all features, the attribute 'LEVL_CODE' is the number of characters in the attribute 'NUTS_ID' plus 2. Use iterator over mylayer.getFeatures() to check that this is true for all features.
 
+# Session 6: Access data sets with WFS protocol; Vector layer geometry; Create a layer from scratch using wkt strings (well known text); Determine geometry of layers; Edit coordinates of vertices and create new layer.
 
-Session 6:
-Access data sets with WFS protocol.
-Vector layer geometry;
-Create a layer from scratch using wkt strings (well known text);
-Determine geometry of layers;
-Edit coordinates of vertices and create new layer.
+* Documents. Description of geometry of features and wkt strings: singlepart and multipart.
+* Data:
+   - RNAP (protected areas in Portugal) to access with WFS (but the file is also available in the Input folder)
+   - Streams.gpkg to test result of assignment
+* Scripts in the scripts folder
+```
+session_6_read_WFS_from_uri_check_modify_encoding_QInputDialog_Export_as_local_file.py
+session_6_1_small_example_create layer with one point feature
+session_6_2_RNAP_read_WFS_from_uri_check_modify_encoding_QInputDialog_Export_as_local_file.py
+session_6_3_b_RNAP_vector_determine_geometry.py
+session_6_3_c_RNAP_vector_layer_geometry_access_vertices_with_accessor_function.py
+session_6_4_RNAP_vector_layer_change_vertices_coordinates.py
+revised auxiliary_functions.py
+```
 
-    Documents. Description of geometry of features and wkt strings: singlepart and multipart.
-    Data:
-        RNAP (protected areas in Portugal) to access with WFS (but the file is also available in the Input folder)
-        Streams.gpkg to test result of assignment
-    Scripts in the scripts folder
-        session_6_read_WFS_from_uri_check_modify_encoding_QInputDialog_Export_as_local_file.py
-        session_6_1_small_example_create layer with one point feature
-        session_6_2_RNAP_read_WFS_from_uri_check_modify_encoding_QInputDialog_Export_as_local_file.py
-        session_6_3_b_RNAP_vector_determine_geometry.py
-        session_6_3_c_RNAP_vector_layer_geometry_access_vertices_with_accessor_function.py
-        session_6_4_RNAP_vector_layer_change_vertices_coordinates.py
-        revised auxiliary_functions.py
+Exercise suggestion: 
+* Adapt the function `round_vertices_coordinates_multipolygon` (which is in the current version of auxiliary_functions.py) and is called from the script `session_6_4_RNAP_vector_layer_change_vertices_coordinates.py` to create a new function, say, `round_vertices_coordinates_multilinestring` which has as input a MultiLineString layer. You can test it using a data set in `inputs` called `Streams.gpkg`.
 
-Exercise suggestion: Adapt the function "round_vertices_coordinates_multipolygon" (which is in the current version of auxiliary_functions.py) and is called from the script "session_6_4_RNAP_vector_layer_change_vertices_coordinates.py" to create a new function, say, "round_vertices_coordinates_multilinestring" which has as input a MultiLineString layer. You can test it using a data set in "inputs" called "Streams.gpkg".
+# Session 7: Regular expressions and file management to search for the location of a given string among all files in a folder; Vector layer geometry to  and fix validity of layers; Geopackage -- create and populate geopackage; Read layers from geopackage; Query Geopackage with SQL
 
-Session 7:
-Regular expressions and file management: search for the location of a given string among all files in a folder.
-Vector layer geometry: check and fix validity of layers.
-Geopackage: create and populate geopackage
-Read layers from geopackage.
-Query Geopackage with SQL
-
-    Documents
-    Data in the Input folder:
-        landUse_invalid_features.gpkg : data set with invalid features
-        Data base CascaisZoning.gpkg
-    Scripts
+* Data in the Input folder:
+   - landUse_invalid_features.gpkg : data set with invalid features
+   - Data base CascaisZoning.gpkg
+* Scripts
         my_index_search_strings_in_files_regex.py
         session_6_3_a_vector_layer_clone_check_and_fix_features_validity.py
         session_7-a_create_geopackage_from_files.py
