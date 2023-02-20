@@ -25,26 +25,23 @@ Notice: the local organization of files should be as described below (Windows: p
    - Input data: The layer that is the input of this new problem can be found in the Input folder
    - The scripts can be found in the scripts folder: `session_2_v1_single_symbol_legend.py` and `session_2_v2_graduated_legend.py`
 
-Session 3:
-Part 1: Use dictionary to define legend; Create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
+# Session 3:
+## Part 1: Use dictionary to define legend; Create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
 
-    Input data: As before, The layer that is the input for this  problem can be found in the Input folder
-    Scripts in the scripts folder
-        session_2_v3_graduated_legend_with dictionary.py
-        session_2_v4_define_function_for_legend_with_dictionary_as_argument.py
-        session_2_v5_load_auxiliary_functions.py (For keeping auxiliary functions in separate file)
+*Input data: As before, The layer that is the input for this  problem can be found in the Input folder Scripts in the scripts folder: `session_2_v3_graduated_legend_with dictionary.py`, `session_2_v4_define_function_for_legend_with_dictionary_as_argument.py` and `session_2_v5_load_auxiliary_functions.py` (For keeping auxiliary functions in separate file)
 
-Part 2: Re-use the auxiliary functions above for a new data set. The data is the NUTS (Nomenclature of territorial units for statistics) map for Europe. The script allows to choose the NUTS level that one wants to draw. All features with the same country name will be represented with the same color in the legend. Colors are random, but the user can choose the range of RGB to create lighter or darker colors.
+## Part 2: Re-use the auxiliary functions above for a new data set. The data is the NUTS (Nomenclature of territorial units for statistics) map for Europe. The script allows to choose the NUTS level that one wants to draw. All features with the same country name will be represented with the same color in the legend. Colors are random, but the user can choose the range of RGB to create lighter or darker colors.
 
-    Input data: NUTS map from https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts. The shapefile files are available in  the Input folder
-    Scripts in in the scripts folder: session_3_v1_NUTS_create_dictionary_apply_legend_function.py
-    There is a challenge at the end of the script: define new function that creates the dictionary and the symbology
+* Input data: NUTS map from https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts. The shapefile files are available in  the Input folder.
+* Scripts in in the scripts folder: `session_3_v1_NUTS_create_dictionary_apply_legend_function.py`
+* There is a challenge at the end of the script: define new function that creates the dictionary and the symbology
 
-Part 3: Re-write the script session_1_v4_use_temporary_outputs.py by creating new functions in auxiliary_functions.py and creating new script session_1_v6_simplify_s1v4_by_calling_functions.py. The added functions are: # my_clean_project; # my_add_vector_layer; # my_processing_run; # my_remove_layer
+## Part 3: Re-write the script `session_1_v4_use_temporary_outputs.py` by creating new functions in `auxiliary_functions.py` and creating new script `session_1_v6_simplify_s1v4_by_calling_functions.py`. 
 
-Exercise suggestion: replace the code below in script "session_3_v1_NUTS_create_dictionary_apply_legend_function.py" by calls to the new functions in "auxiliary_functions.py": you should be able to do that with 3 or 4 lines of code to replace the whole code below.
+*The added functions are: my_clean_project; # my_add_vector_layer; # my_processing_run; # my_remove_layer
+* Exercise suggestion: replace the code below in script `session_3_v1_NUTS_create_dictionary_apply_legend_function.py` by calls to the new functions in `auxiliary_functions.py`: you should be able to do that with 3 or 4 lines of code to replace the whole code below.
 
-          
+```         
 # read data and create layer
 mylayer=QgsVectorLayer(fn_nuts,"", "ogr")
 mylayer.setName(ln_nuts)
@@ -61,8 +58,9 @@ mylayer=processing.run("native:extractbyattribute",
 mylabel=ln_nuts+'_'+str(nuts_level_value)
 mylayer.setName(mylabel)
 myproject.addMapLayer(mylayer)
+```
 
-Session 4: Converting blocks of code into functions; modularity. Exemple with a function to build a dictionary and another function to apply that dictionary to create a graduated symbology for the NUTS data set. Using a matplotlib colormap. Miscelaneous: script to find strings in files (os module and regular expressions: re module). Message boxes in PyQGIS.
+# Session 4: Converting blocks of code into functions; modularity. Exemple with a function to build a dictionary and another function to apply that dictionary to create a graduated symbology for the NUTS data set. Using a matplotlib colormap. Miscelaneous: script to find strings in files (os module and regular expressions: re module). Message boxes in PyQGIS.
 
     Input data: NUTS data
     Scripts in the scripts folder
