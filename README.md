@@ -78,9 +78,9 @@ mylayer.setName(mylabel)
 myproject.addMapLayer(mylayer)
 ```
 
-## Session 4: Converting blocks of code into functions; modularity. Example: function to build a dictionary and another function to apply that dictionary to create a graduated symbology for the NUTS data set. Using a matplotlib colormap. Miscelaneous: script to find strings in files (os module and regular expressions: re module). Message boxes in PyQGIS.
+## Session 4: Converting blocks of code into functions; modularity.  Regular expressions. Message boxes in PyQGIS.
 
-### Part 1
+### Part 1: Function to build a dictionary and another function to apply that dictionary to create a graduated symbology for the NUTS data set. Using a matplotlib colormap
 
 * Input: NUTS map from https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts. The shapefile files are also available in  the Input folder.
 * Scripts:
@@ -92,7 +92,7 @@ session_4_v3_NUTS_graduated_legend_color_ramp_from_matplotlib_with_functions.py
 auxiliary_functions.py
 ```
 
-### Part 2:  Miscelaneous: scripts to search strings, interact with user using MessageBox to remove files, create scatter plot with matplotlib
+### Part 2:  Miscelaneous: scripts to search strings (os module and regular expressions: re module), interact with user using MessageBox to remove files, create scatter plot with matplotlib
 
 * Scripts:
 ```
@@ -126,7 +126,7 @@ Extra exercise suggestion:
 
 ## Session 6: Access data sets with WFS protocol; Vector layer geometry; Create a layer from scratch using wkt strings (well known text); Determine geometry of layers; Edit coordinates of vertices and create new layer.
 
-* Documents. Description of geometry of features and wkt strings: singlepart and multipart.
+* Documents. Description of geometry of features and wkt strings: singlepart and multipart, available in `Figures and other course documentation.zip`
 * Data:
    - RNAP (protected areas in Portugal) to access with WFS (but the file is also available in the Input folder)
    - `Streams.gpkg` in Input folder to test result of assignment
@@ -160,11 +160,9 @@ Exercise suggestion:
 * Input: Geopackage (database) `CascaisZoning.gpkg`
 * Scripts
 ```
-my_index_search_strings_in_files_regex.py
-session_6_3_a_vector_layer_clone_check_and_fix_features_validity.py
 session_7-a_create_geopackage_from_files.py
 session_7_b_Cascais_simple_example_of_SQL_query_over_geopackage.py
-revised auxiliary_functions.py
+auxiliary_functions.py
 ```
 
 ## Session 8: SQL queries within Python script; Converting SQL query result into a new vector layer; Adding new layer to existing geopackage; Solving a zoning problem over Cascais
@@ -175,23 +173,24 @@ session_8_a_v1_Cascais_first_examples_SQL_queries_.py
 session_8_a_v2_Cascais_first_examples_SQL_queries_with_function.py
 session_8_b_Cascais_exaamples_SQL_queries_ST_intersect_ORDER_BY.py
 session_8_c_Cascais_example_ST_buffer_create_new_layer_add_layer_to_geopackage.py
-revised auxiliary_functions.py
+auxiliary_functions.py
  ```
  
 * Documents in `Figures and other course documentation.zip`: Spatial Analysis Problem Cascais; Cascais Zoning Diagram Soil Productivity : diagram describing SQL query; Cascais Zoning Diagram Road Buffer: diagram describing SQL query
 
-Assignement: the Cascais Zoning Problem. The problem is described in `Spatial Analysis Problem Cascais.docx` in `Figures and other course documentation.zip`. The goal is to solve the Zoning problem for Cascais using the information in the `CascaisZoning.gpkg` geopackage available in the Input folder
+Proposed exercise: 
+* Cascais Zoning Problem. The problem is described in `Spatial Analysis Problem Cascais.docx` in `Figures and other course documentation.zip`. The goal is to solve the Zoning problem for Cascais using the information in the `CascaisZoning.gpkg` geopackage available in the Input folder
 
-Suggestions:
-1. Look at the script `session_1_v6_simplify_s1v4_by_calling_functions.py` to see how you can use the functions that are already defined to run tools of processing toolbox and make your code shorter and clearer;
-2. First run the function you need in the QGIS interface from Processing toolbox, and then look at "History" and copy the script that is there and adapt it to look something like this -- the functions you need are in `auxiliary_functions.py`:
+Extra exercises:
+* Look at the script `session_1_v6_simplify_s1v4_by_calling_functions.py` to see how you can use the functions that are already defined to run tools of processing toolbox and make your code shorter and clearer;
+* First run the function you need in the QGIS interface from Processing toolbox, and then look at "History" and copy the script that is there and adapt it to look something like this -- the functions you need are in `auxiliary_functions.py`:
 ```
 dict_params={'OVERLAY':'my overlay layer name'}
 mylayer=my_processing_run("native:clip",'my input layer name',dict_params,'my output layer name')
 ```
 3. You can remove layers you don't need anymore with `my_remove_layer('name_of_the_layer_to_be_removed')`
 4. You should be able to solve the whole problem just with operations from the Processing toolbox, but you can use other options if you want
-6. Since the data are all in a geopackage, to open simple tables you don't need to go through the more complicated details needed to open a csv or txt file: you just load the layer from the geopackage as discussed in the script `session_7_a_create_geopackage_from_files.py`
+5. Since the data are all in a geopackage, to open simple tables you don't need to go through the more complicated details needed to open a csv or txt file: you just load the layer from the geopackage as discussed in the script `session_7_a_create_geopackage_from_files.py`
 
 ## Session 9: A resolution for the Cascais Zoning problem just using operations from the processing Toolbox; New script replacing some operations by one SQL query; Raster data
 
@@ -217,18 +216,31 @@ revised auxiliary_functions.py
     - Overview of PyQGIS objects for legends of vector and raster datasets.
 
 
-## Session 10: Extract raster pixel values as a numpy array with gdal; Replace raster nodata value by numpy.nan (not a number);  Use MatPlotLib to build an histogram of raster values;  Manipulate numpy array using numpy and other packages (e.g. sklearn, a package for machine learning);  Convert array back to raster layer and tif file with gdal;  Access on-line data (download and unzip files, access with XYZ, WMS and WFS protocols) using a Python script in QGIS.
+## Session 10: Manipulate raster data sets; Build histogram of raster values; Example with sklearn applied to a raster; Access on-line data
 
 * Data:
     - Multiband raster `Cropped_S2A-T29SNB-B2348-2021-8-22.tif` a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
     - `ndvi.tif`: a single band raster derived from the data set above
+
+### Part 1: Extract raster pixel values as a numpy array with gdal; Replace raster nodata value by numpy.nan (not a number);  Use MatPlotLib to build an histogram of raster values;  
+
 * Scripts
 ```
-        session_9_c_create_raster_nodatavalue_histogram_matplotlib.py
-        session_10_a_read_multiband_convert_to_array.py
-        session_10_b_v1_read_multiband_convert_to_array_k_means_export_as_raster.py
-        session_10_b_v2_read_multiband_convert_to_array_k_means_export_as_raster_with functions.py
-        session_10_c_read_multiband_convert_to_array_add_ndvi_k_means_export_as_raster.py
-        session_10_d_read_datasets_wms_wfs_unzip.py
-        revised auxiliary_functions.py
+session_9_c_create_raster_nodatavalue_histogram_matplotlib.py
+auxiliary_functions.py
 ```
+
+### Part 2: Manipulate numpy array using numpy and other packages (e.g. sklearn, a package for machine learning);  Convert array back to raster layer and tif file with gdal;  
+
+* Scripts
+```
+session_10_a_read_multiband_convert_to_array.py
+session_10_b_v1_read_multiband_convert_to_array_k_means_export_as_raster.py
+session_10_b_v2_read_multiband_convert_to_array_k_means_export_as_raster_with functions.py
+session_10_c_read_multiband_convert_to_array_add_ndvi_k_means_export_as_raster.py
+auxiliary_functions.py
+```
+### Part 3: Access on-line data (download and unzip files, access with XYZ, WMS and WFS protocols) using a Python script in QGIS.
+
+
+* Script: `session_10_d_read_datasets_wms_wfs_unzip.py`
