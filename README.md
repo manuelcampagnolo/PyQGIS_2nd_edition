@@ -8,30 +8,41 @@ Notice: the local organization of files should be as described below for Windows
 - scripts: where python scripts should go (e.g. `C:\users\my_user\Documents\PyQGIS\scripts`): where Python scripts should be stored
 - temp: temporary folder for outputs (e.g. `C:\users\my_user\Documents\PyQGIS\temp`): where intermediate and output files should be written
 
-# Session 1: First example; using processing and history to obtain commands for the script; using variables and file paths
+## Session 1: First example; using processing and history to obtain commands for the script; using variables and file paths
 
 * Input data: Vector geografic data sets representing a road (RVFundamental.gpkg) and a protection area for wild fires (RPFGC_PPSM.gkpk). See this map and the intended vegetation profile from Manual da Rede Primária.
 * Problem: determine two road buffers: one interior buffer within distance D of the road; one exterior buffer to fill the rest of the protection area. Both buffers need to be contained within the protection area. Then, create a single data set containing both buffers with an attribute that takes value "interior" and "exterior". See operations diagram for the problem.
-* Extensions of the problem: (1) Use a variable for D instead of a fixed value; (2) use variables for the folder and file names; (3) add output to interface as a QGIS layer; (4) clear QGIS layers; (5) Solve the more realistic problem with 3 regions instead of 2.
-  * Extra reading:
-    - See "Using processing algorithms from the console" from QGIS documentation
-    - The QgsProject class from QGIS documentation
 
-# Session 2: Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table).
+Try the following extensions of the problem: 
+1. Use a variable for D instead of a fixed value; 
+2. Use variables for the folder and file names; 
+3. Add output to interface as a QGIS layer; 
+4. Clear QGIS layers; 
+5. Solve the more realistic problem with 3 regions instead of 2.
+  
+Extra reading:
+   - See "Using processing algorithms from the console" from QGIS documentation
+   - The QgsProject class from QGIS documentation
+
+## Session 2: Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table).
 
 * Problem: Write new solution for the problem of session 1 using temporary layers: see script in the scripts folder
 * Change symbology for the resulting layer:
    - Input data: The layer that is the input of this new problem can be found in the Input folder
    - The scripts can be found in the scripts folder: `session_2_v1_single_symbol_legend.py` and `session_2_v2_graduated_legend.py`
 
-# Session 3:
-## Part 1: Use dictionary to define legend 
+## Session 3:
+### Part 1: Use dictionary to define legend 
 
 Create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
 
-* Input data: As before, The layer that is the input for this  problem can be found in the Input folder Scripts in the scripts folder: `session_2_v3_graduated_legend_with dictionary.py`, `session_2_v4_define_function_for_legend_with_dictionary_as_argument.py` and `session_2_v5_load_auxiliary_functions.py` (For keeping auxiliary functions in separate file)
-
-## Part 2: Re-use the auxiliary functions above for a new data set
+* Input data: As before, The layer that is the input for this  problem can be found in the Input folder Scripts in the scripts folder: 
+```
+session_2_v3_graduated_legend_with dictionary.py
+session_2_v4_define_function_for_legend_with_dictionary_as_argument.py
+session_2_v5_load_auxiliary_functions.py # For keeping auxiliary functions in separate file
+```
+### Part 2: Re-use the auxiliary functions above for a new data set
 
 The data is the NUTS (Nomenclature of territorial units for statistics) map for Europe. The script allows to choose the NUTS level that one wants to draw. All features with the same country name will be represented with the same color in the legend. Colors are random, but the user can choose the range of RGB to create lighter or darker colors.
 
@@ -39,12 +50,11 @@ The data is the NUTS (Nomenclature of territorial units for statistics) map for 
 * Scripts in in the scripts folder: `session_3_v1_NUTS_create_dictionary_apply_legend_function.py`
 * There is a challenge at the end of the script: define new function that creates the dictionary and the symbology
 
-## Part 3: Re-write the script `session_1_v4_use_temporary_outputs.py`
+### Part 3: Re-write the script `session_1_v4_use_temporary_outputs.py`
 
-Simplify the script by creating new functions in `auxiliary_functions.py` and creating new script `session_1_v6_simplify_s1v4_by_calling_functions.py`. 
+Simplify the script `session_1_v4_use_temporary_outputs.py` by creating new functions `my_clean_project`, `my_add_vector_layer`, `my_processing_run`, `my_remove_layer` in `auxiliary_functions.py` and creating new script `session_1_v6_simplify_s1v4_by_calling_functions.py` using those functions. 
 
-* The added functions are: `my_clean_project`; `my_add_vector_layer`; `my_processing_run`; `my_remove_layer`
-* Exercise suggestion: replace the code below in script `session_3_v1_NUTS_create_dictionary_apply_legend_function.py` by calls to the new functions in `auxiliary_functions.py`: you should be able to do that with 3 or 4 lines of code to replace the whole code below.
+Exercise suggestion: replace the code below in script `session_3_v1_NUTS_create_dictionary_apply_legend_function.py` by calls to the new functions in `auxiliary_functions.py`: you should be able to do that with 3 or 4 lines of code to replace the whole code below.
 
 ```         
 # read data and create layer
