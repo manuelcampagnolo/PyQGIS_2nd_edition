@@ -1,6 +1,8 @@
 # PyQGIS_2nd_edition
 
-Instructor: Manuel Campagnolo, ISA/ULisboa
+**Unleash QGIS with Python: a beginners course**, 2nd Edition, ISA/ULisboa, March-April 2022
+
+Instructor: *Manuel Campagnolo, ISA/ULisboa*
 
 In this repository, you can find:
 - The scripts used in the course: each script (python script) has a name that matches the names below.
