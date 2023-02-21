@@ -48,13 +48,13 @@ The input data is the NUTS (Nomenclature of territorial units for statistics) ma
 
 * Input data: NUTS map from https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts. The shapefile files are available in  the Input folder.
 * Scripts in in the scripts folder: `session_3_v1_NUTS_create_dictionary_apply_legend_function.py`
-* There is a challenge at the end of the script: define new function that creates the dictionary and the symbology
+* There is a challenge at the end of the script: define a new function that creates the dictionary and the symbology
 
 ### Part 3: Re-write the script `session_1_v4_use_temporary_outputs.py`
 
-Simplify the script `session_1_v4_use_temporary_outputs.py` by creating new functions `my_clean_project`, `my_add_vector_layer`, `my_processing_run`, `my_remove_layer` in `auxiliary_functions.py` and creating new script `session_1_v6_simplify_s1v4_by_calling_functions.py` using those functions. 
+Simplify the script `session_1_v4_use_temporary_outputs.py` by creating new functions `my_clean_project`, `my_add_vector_layer`, `my_processing_run`, `my_remove_layer` in `auxiliary_functions.py`. At the end, you should have a new script similar to `session_1_v6_simplify_s1v4_by_calling_functions.py`, which is mor compact than `session_1_v4_use_temporary_outputs.py`.
 
-Exercise suggestion: replace the code below in script `session_3_v1_NUTS_create_dictionary_apply_legend_function.py` by calls to the new functions in `auxiliary_functions.py`: you should be able to do that with 3 or 4 lines of code to replace the whole code below.
+Exercise suggestion: use functions `my_add_vector_layer`, `my_processing_run` to replace the code below in script `session_3_v1_NUTS_create_dictionary_apply_legend_function.py` and get a more compact script.
 
 ```         
 # read data and create layer
@@ -75,26 +75,47 @@ mylayer.setName(mylabel)
 myproject.addMapLayer(mylayer)
 ```
 
-# Session 4: Converting blocks of code into functions; modularity. Exemple with a function to build a dictionary and another function to apply that dictionary to create a graduated symbology for the NUTS data set. Using a matplotlib colormap. Miscelaneous: script to find strings in files (os module and regular expressions: re module). Message boxes in PyQGIS.
+## Session 4: Converting blocks of code into functions; modularity. Example: function to build a dictionary and another function to apply that dictionary to create a graduated symbology for the NUTS data set. Using a matplotlib colormap. Miscelaneous: script to find strings in files (os module and regular expressions: re module). Message boxes in PyQGIS.
 
 * Input data: NUTS data
 * Scripts in the scripts folder
-   - For the graduated legend for the NUTS units' area: see in scripts folder: `session_4_v1_NUTS_graduated_legend_color_ramp_from_matplotlib_no_dict.py` `session_4_v2_NUTS_graduated_legend_color_ramp_from_matplotlib_with_dict.py`, `session_4_v3_NUTS_graduated_legend_color_ramp_from_matplotlib_with_functions.py`, `auxiliary_functions.py`
-   - Other: `search_string_in_files.py` ; `remove_files_message_boxes.py` ; `basic_example_matplotlib.py`
+   - For the graduated legend for the NUTS units' area:  
+```
+session_4_v1_NUTS_graduated_legend_color_ramp_from_matplotlib_no_dict.py
+session_4_v2_NUTS_graduated_legend_color_ramp_from_matplotlib_with_dict.py
+session_4_v3_NUTS_graduated_legend_color_ramp_from_matplotlib_with_functions.py
+auxiliary_functions.py
+```
+   - Miscelaneous: scripts to search strings, interact with user using MessageBox to remove files, create scatter plot with matplotlib:
+```
+search_string_in_files.py
+basic_os_remove_files_message_boxes.py
+basic_example_matplotlib.py
+```
 
 Exercise suggestions:
 * (easy) create dictionary for the NUTS data set to define a graduated legend with 4 classes and respective labels that you choose "by hand". Then, call function `create_graduated_legend` (in `auxiliary_functions.py`) to create the legend.
-* (more complex) Create a new function, in alternative to `create_graduated_legend_dict`, but with the same arguments `values,colormap,myopacity` that uses Sturges rule to determine the approximate number of classes to consider and define classes of equal amplitude for the legend. The output of this new function should be a dictionary (analogous to the output of `create_graduated_legend_dict`)
+* (more complex) Create a new function, in alternative to `create_graduated_legend_dict`, but with the same arguments `values,colormap,myopacity` that uses Sturges rule to determine the approximate number of classes to consider and define classes of equal amplitude for the legend. The output of this new function should be a dictionary (analogous to the output of `create_graduated_legend_dict`). Solution of the exercise: check function `create_sturges_graduated_legend_dict` in `auxiliary_functions.py`
 
-# Session 5: Dialog boxes to interact with the user; Read simple tables (csv, txt);  Iterate through features; Create new attributes (aka fields); Compute new attributes; Join by attribute
-* Data sets: CAOP map (Portuguese administrative units), Milk production table from INE (Portuguese official statistics institute) , all in the Input folder
-* Scripts in the scripts folder: `basic_examples_QInputDialog_and_QMessageBox.py`; `session_5_v1_INE_read_csv_file_join_layers_by_attributes.py`; `revised auxiliary_functions.py`
+## Session 5: Dialog boxes to interact with the user; Read simple tables (csv, txt);  Iterate through features; Create new attributes (aka fields); Compute new attributes; Join by attribute
+
+The script `session_5_v1_INE_read_csv_file_join_layers_by_attributes.py` has the following inputs and output:
+* Input: CAOP; Milk production table; type of milk prodution (cow, goat, or sheep) to be asked to the user;
+* Output: a QGIS layer that represents milk production of that type for the "concelhos" (second administrative level)  of Portugal with an adequate legend.
+
+* Data sets: [CAOP map (Portuguese administrative units)](https://www.dgterritorio.gov.pt/cartografia/cartografia-tematica/caop), Milk production table from INE (Portuguese official statistics institute) , available in the Input folder
+* Scripts: 
+```
+basic_examples_QInputDialog_and_QMessageBox.py
+session_5_v1_INE_read_csv_file_join_layers_by_attributes.py
+auxiliary_functions.py
+```
 
 Exercise suggestion:
-* (easy) Create a scritp that reads the NUTS data set and confirms that for all features, the attribute `LEVL_CODE` is the number of characters in the attribute `NUTS_ID` plus 2. Use iterator over `mylayer.getFeatures()` to check that this is true for all features.
+* Create a script that reads the NUTS data set and confirms that for all features, the attribute `LEVL_CODE` is the length of the string in attribute `NUTS_ID` plus 2. Use iterator over `mylayer.getFeatures()` to check that this is true for all features.
 
 
-# Session 6: Access data sets with WFS protocol; Vector layer geometry; Create a layer from scratch using wkt strings (well known text); Determine geometry of layers; Edit coordinates of vertices and create new layer.
+## Session 6: Access data sets with WFS protocol; Vector layer geometry; Create a layer from scratch using wkt strings (well known text); Determine geometry of layers; Edit coordinates of vertices and create new layer.
 
 * Documents. Description of geometry of features and wkt strings: singlepart and multipart.
 * Data:
@@ -114,11 +135,20 @@ revised auxiliary_functions.py
 Exercise suggestion: 
 * Adapt the function `round_vertices_coordinates_multipolygon` (which is in the current version of auxiliary_functions.py) and is called from the script `session_6_4_RNAP_vector_layer_change_vertices_coordinates.py` to create a new function, say, `round_vertices_coordinates_multilinestring` which has as input a MultiLineString layer. You can test it using a data set in `inputs` called `Streams.gpkg`.
 
-# Session 7: Regular expressions and file management to search for the location of a given string among all files in a folder; Vector layer geometry to  and fix validity of layers; Geopackage -- create and populate geopackage; Read layers from geopackage; Query Geopackage with SQL
+## Session 7: Regular expressions and file management to search for the location of a given string among all files in a folder; Vector layer geometry to  and fix validity of layers; Geopackage -- create and populate geopackage; Read layers from geopackage; Query Geopackage with SQL
 
-* Data in the Input folder:
-   - landUse_invalid_features.gpkg : data set with invalid features
-   - Data base CascaisZoning.gpkg
+### Part 1 (regular expressions)
+
+* Script `my_index_search_strings_in_files_regex.py`
+
+### Part 2 (fix geometries)
+
+* Script `session_6_3_a_vector_layer_clone_check_and_fix_features_validity.py`
+* Input:  `landUse_invalid_features.gpkg`: data set with invalid features
+
+### Part 3 (SQL)
+   
+* Input: Data base `CascaisZoning.gpkg`
 * Scripts
 ```
 my_index_search_strings_in_files_regex.py
@@ -128,7 +158,7 @@ session_7_b_Cascais_simple_example_of_SQL_query_over_geopackage.py
 revised auxiliary_functions.py
 ```
 
-# Session 8: Doing SQL queries within Python script; Converting SQL query result into a new vector layer; Adding new layer to existing geopackage; Solving a zoning problem over Cascais
+## Session 8: SQL queries within Python script; Converting SQL query result into a new vector layer; Adding new layer to existing geopackage; Solving a zoning problem over Cascais
 
 * Scripts
 ```
@@ -141,28 +171,33 @@ revised auxiliary_functions.py
  
 * Documents in 'Figures and other course documentation': Spatial Analysis Problem Cascais; Cascais Zoning Diagram Soil Productivity : diagram describing SQL query; Cascais Zoning Diagram Road Buffer: diagram describing SQL query
 
-Assignement: the Cascais Zoning Problem. The problem is described in this document. The goal is to solve the Zoning problem for Cascais using the information in the CascaisZoning.gpkg geopackage available in the 'input' folder.
+Assignement: the Cascais Zoning Problem. The problem is described in `Spatial Analysis Problem Cascais.docx` in `Figures and other course documentation.zip`. The goal is to solve the Zoning problem for Cascais using the information in the `CascaisZoning.gpkg` geopackage available in the Inputs
 
 Suggestions:
-1. Look at the script `session_1_v6_simplify_s1v4_by_calling_functions.py` to see how you can use the functions that are already defined to run tools of processing toolbox and make your code short and clear;
+1. Look at the script `session_1_v6_simplify_s1v4_by_calling_functions.py` to see how you can use the functions that are already defined to run tools of processing toolbox and make your code shorter and clearer;
 2. First run the function you need in the QGIS interface from Processing toolbox, and then look at "History" and copy the script that is there and adapt it to look something like this -- the functions you need are in `auxiliary_functions.py`:
 ```
 dict_params={'OVERLAY':'my overlay layer name'}
 mylayer=my_processing_run("native:clip",'my input layer name',dict_params,'my output layer name')
 ```
 3. You can remove layers you don't need anymore with `my_remove_layer('name of the layer to be removed')`
-
 4. You should be able to solve the whole problem just with operations from the Processing toolbox, but you can use other options if you want
-5. Since the data are all in a geopackage, to open simple tables you don't need to go through the more complicated details needed to open a csv or txt file: you just load the layer from the geopackage as discussed in the script `session_7_a_create_geopackage_from_files.py`
+6. Since the data are all in a geopackage, to open simple tables you don't need to go through the more complicated details needed to open a csv or txt file: you just load the layer from the geopackage as discussed in the script `session_7_a_create_geopackage_from_files.py`
 
-# Session 9: A resolution for the Cascais Zoning problem just using operations from the processing Toolbox; New script replacing some operations by one SQL query; Raster data: (1) Read and render multiband rasters with a script; Export raster; (2) Operate on bands with raster calculator and create a legend; (3) Convert data into a numpy array and analize; (4) Identify no-data values.
+## Session 9: A resolution for the Cascais Zoning problem just using operations from the processing Toolbox; New script replacing some operations by one SQL query; Raster data
+
+### Part 1: A resolution for the Cascais Zoning problem just using operations from the processing Toolbox
+
+* Input: `CascaisZoning.gpkg`
+* Scripts: `session_8_assignment_solution_v1_Processing_Toolbox_Zoning_Cascais.py`
+
+### Part 2. Raster data: : (1) Read and render multiband rasters with a script; Export raster; (2) Operate on bands with raster calculator and create a legend; (3) Convert data into a numpy array and analize; (4) Identify no-data values.
 
 * Data:
-    - Multiband raster `Cropped_S2A-T29SNB-B2348-2021-8-22.tif` a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
-    - `ndvi.tif`: a single band raster derived from the data set above
+  - Multiband raster `Cropped_S2A-T29SNB-B2348-2021-8-22.tif` a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
+  - `ndvi.tif`: a single band raster derived from the data set above
 * Scripts
 ```
-Scripts for the Cascais Zoning problem
 session_9_a_read_and_render_multiband_raster.py
 session_9_b_raster_calculator_write_rlayer_to_tif_create_legend.py
 session_9_c_create_raster_nodatavalue_histogram_matplotlib.py
@@ -173,7 +208,7 @@ revised auxiliary_functions.py
     - Overview of PyQGIS objects for legends of vector and raster datasets.
 
 
-# Session 10: Extract raster pixel values as a numpy array with gdal; Replace raster nodata value by numpy.nan (not a number);  Use MatPlotLib to build an histogram of raster values;  Manipulate numpy array using numpy and other packages (e.g. sklearn, a package for machine learning);  Convert array back to raster layer and tif file with gdal;  Access on-line data (download and unzip files, access with XYZ, WMS and WFS protocols) using a Python script in QGIS.
+## Session 10: Extract raster pixel values as a numpy array with gdal; Replace raster nodata value by numpy.nan (not a number);  Use MatPlotLib to build an histogram of raster values;  Manipulate numpy array using numpy and other packages (e.g. sklearn, a package for machine learning);  Convert array back to raster layer and tif file with gdal;  Access on-line data (download and unzip files, access with XYZ, WMS and WFS protocols) using a Python script in QGIS.
 
 * Data:
     - Multiband raster `Cropped_S2A-T29SNB-B2348-2021-8-22.tif` a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
