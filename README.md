@@ -201,7 +201,7 @@ mylayer=my_processing_run("native:clip",'my input layer name',dict_params,'my ou
 
 ### Part 2. Raster data: : (1) Read and render multiband rasters with a script; Export raster; (2) Operate on bands with raster calculator and create a legend; (3) Convert data into a numpy array and analize; (4) Identify no-data values.
 
-* Data:
+* Data available from this [shared drive](https://drive.google.com/drive/folders/1-kuICqPc7WlYPl5GCZtsKx3VZ6DFPOB_?usp=sharing)
   - Multiband raster `Cropped_S2A-T29SNB-B2348-2021-8-22.tif` a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
   - `ndvi.tif`: a single band raster derived from the data set above
 * Scripts
@@ -218,7 +218,7 @@ revised auxiliary_functions.py
 
 ## Session 10: Manipulate raster data sets; Build histogram of raster values; Example with sklearn applied to a raster; Access on-line data
 
-* Data:
+* Data available from this [shared drive](https://drive.google.com/drive/folders/1-kuICqPc7WlYPl5GCZtsKx3VZ6DFPOB_?usp=sharing)
     - Multiband raster `Cropped_S2A-T29SNB-B2348-2021-8-22.tif` a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
     - `ndvi.tif`: a single band raster derived from the data set above
 
