@@ -2,15 +2,19 @@
 
 Instructor: Manuel Campagnolo, ISA/ULisboa
 
-Notice: the local organization of files should be as described below for Windows (please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
+In this repository, you can find:
+- The scripts used in the course: each script (python script) has a name that matches the names below.
+- A zip file `Input.zip` (that will be refered as the **Input folder** below) that contains all vectorial geographic data sets and tables that are used in the course 
+- A zip file `Figures and other course documentation.zip` that contains figures and documents that complement the course contents below.
 
-- input: input data sets for class exercises (e.g. `C:\users\my_user\Documents\PyQGIS\input`): where input files should be stored
+Notice: the local organization of files in you computer should be as described below for Windows (please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
+- input: input data sets for exercises (e.g. `C:\users\my_user\Documents\PyQGIS\input`): where input files should be stored
 - scripts: where python scripts should go (e.g. `C:\users\my_user\Documents\PyQGIS\scripts`): where Python scripts should be stored
 - temp: temporary folder for outputs (e.g. `C:\users\my_user\Documents\PyQGIS\temp`): where intermediate and output files should be written
 
 ## Session 1: First example; using processing and history to obtain commands for the script; using variables and file paths
 
-* Input data: Vector geografic data sets representing a road (RVFundamental.gpkg) and a protection area for wild fires (RPFGC_PPSM.gkpk). See this map and the intended vegetation profile from Manual da Rede Primária.
+* Input: Vector geografic data sets representing a road `RVFundamental.gpkg` and a protection area for wild fires `RPFGC_PPSM.gkpk`. See this map and the intended vegetation profile from Manual da Rede Primária.
 * Problem: determine two road buffers: one interior buffer within distance D of the road; one exterior buffer to fill the rest of the protection area. Both buffers need to be contained within the protection area. Then, create a single data set containing both buffers with an attribute that takes value "interior" and "exterior". See operations diagram for the problem.
 
 Try the following extensions of the problem: 
@@ -26,7 +30,7 @@ Extra reading:
 
 ## Session 2: Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table).
 
-Problemto solve: Write a new solution for the problem of session 1 using temporary layers: see script `session_1_v4_use_temporary_outputs.py`
+Proposed exercise: Write a new solution for the problem of session 1 using temporary layers: see script `session_1_v4_use_temporary_outputs.py`
 
 Change symbology for the resulting layer:
   - Input data: The layer that is the input of this new problem can be found in the Input folder
@@ -35,7 +39,7 @@ Change symbology for the resulting layer:
 ## Session 3:
 ### Part 1: Use dictionary to define legend: create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
 
-* Input data: As before, the layer that is the input for this  problem `IntExt_20.gpkg` can be found in the Input folder
+* Input: As before, the layer that is the input for this  problem `IntExt_20.gpkg` can be found in the Input folder
 * Scripts: 
 ```
 session_2_v3_graduated_legend_with dictionary.py
@@ -46,13 +50,12 @@ session_2_v5_load_auxiliary_functions.py # For keeping auxiliary functions in se
 
 The input data is the NUTS (Nomenclature of territorial units for statistics) map for Europe. The script allows to choose the NUTS level that one wants to draw. All features with the same country name will be represented with the same color in the legend. Colors are random, but the user can choose the range of RGB to create lighter or darker colors.
 
-* Input data: NUTS map from https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts. The shapefile files are available in  the Input folder.
-* Scripts in in the scripts folder: `session_3_v1_NUTS_create_dictionary_apply_legend_function.py`
-* There is a challenge at the end of the script: define a new function that creates the dictionary and the symbology
+* Input: NUTS map from https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts. The shapefile files are also available in  the Input folder.
+* Scripts in in the scripts folder: `session_3_v1_NUTS_create_dictionary_apply_legend_function.py`. Notice: There is a challenge at the end of the script, which is to  define a new function that creates the dictionary and the symbology
 
 ### Part 3: Re-write the script `session_1_v4_use_temporary_outputs.py`
 
-Simplify the script `session_1_v4_use_temporary_outputs.py` by creating new functions `my_clean_project`, `my_add_vector_layer`, `my_processing_run`, `my_remove_layer` in `auxiliary_functions.py`. At the end, you should have a new script similar to `session_1_v6_simplify_s1v4_by_calling_functions.py`, which is mor compact than `session_1_v4_use_temporary_outputs.py`.
+Simplify the script `session_1_v4_use_temporary_outputs.py` by creating new functions `my_clean_project`, `my_add_vector_layer`, `my_processing_run`, `my_remove_layer` in `auxiliary_functions.py`. At the end, you should have a new script similar to `session_1_v6_simplify_s1v4_by_calling_functions.py`, which is more compact than `session_1_v4_use_temporary_outputs.py`.
 
 Exercise suggestion: use functions `my_add_vector_layer`, `my_processing_run` to replace the code below in script `session_3_v1_NUTS_create_dictionary_apply_legend_function.py` and get a more compact script.
 
@@ -77,8 +80,10 @@ myproject.addMapLayer(mylayer)
 
 ## Session 4: Converting blocks of code into functions; modularity. Example: function to build a dictionary and another function to apply that dictionary to create a graduated symbology for the NUTS data set. Using a matplotlib colormap. Miscelaneous: script to find strings in files (os module and regular expressions: re module). Message boxes in PyQGIS.
 
-* Input data: NUTS data
-* Scripts in the scripts folder
+### Part 1
+
+* Input: NUTS map from https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts. The shapefile files are also available in  the Input folder.
+* Scripts:
    - For the graduated legend for the NUTS units' area:  
 ```
 session_4_v1_NUTS_graduated_legend_color_ramp_from_matplotlib_no_dict.py
@@ -86,7 +91,10 @@ session_4_v2_NUTS_graduated_legend_color_ramp_from_matplotlib_with_dict.py
 session_4_v3_NUTS_graduated_legend_color_ramp_from_matplotlib_with_functions.py
 auxiliary_functions.py
 ```
-   - Miscelaneous: scripts to search strings, interact with user using MessageBox to remove files, create scatter plot with matplotlib:
+
+### Part 2:  Miscelaneous: scripts to search strings, interact with user using MessageBox to remove files, create scatter plot with matplotlib
+
+* Scripts:
 ```
 search_string_in_files.py
 basic_os_remove_files_message_boxes.py
@@ -99,19 +107,20 @@ Exercise suggestions:
 
 ## Session 5: Dialog boxes to interact with the user; Read simple tables (csv, txt);  Iterate through features; Create new attributes (aka fields); Compute new attributes; Join by attribute
 
-The script `session_5_v1_INE_read_csv_file_join_layers_by_attributes.py` has the following inputs and output:
-* Input: CAOP; Milk production table; type of milk prodution (cow, goat, or sheep) to be asked to the user;
-* Output: a QGIS layer that represents milk production of that type for the "concelhos" (second administrative level)  of Portugal with an adequate legend.
+Proposed exercise: create a map that represents milk production for Portugal.
 
-* Data sets: [CAOP map (Portuguese administrative units)](https://www.dgterritorio.gov.pt/cartografia/cartografia-tematica/caop), Milk production table from INE (Portuguese official statistics institute) , available in the Input folder
-* Scripts: 
+* Script: `session_5_v1_INE_read_csv_file_join_layers_by_attributes.py` has the following inputs and output:
+  - Input: CAOP; Milk production table; type of milk prodution (cow, goat, or sheep) to be asked to the user;
+  - Output: a QGIS layer that represents milk production of that type for the "concelhos" (second administrative level)  of Portugal with an adequate legend.
+* Other scripts:
 ```
 basic_examples_QInputDialog_and_QMessageBox.py
-session_5_v1_INE_read_csv_file_join_layers_by_attributes.py
 auxiliary_functions.py
 ```
+* Data sets: [CAOP map (Portuguese administrative units)](https://www.dgterritorio.gov.pt/cartografia/cartografia-tematica/caop), Milk production table from INE (Portuguese official statistics institute) , available in the Input folder
 
-Exercise suggestion:
+
+Extra exercise suggestion:
 * Create a script that reads the NUTS data set and confirms that for all features, the attribute `LEVL_CODE` is the length of the string in attribute `NUTS_ID` plus 2. Use iterator over `mylayer.getFeatures()` to check that this is true for all features.
 
 
@@ -120,8 +129,8 @@ Exercise suggestion:
 * Documents. Description of geometry of features and wkt strings: singlepart and multipart.
 * Data:
    - RNAP (protected areas in Portugal) to access with WFS (but the file is also available in the Input folder)
-   - Streams.gpkg to test result of assignment
-* Scripts in the scripts folder
+   - `Streams.gpkg` in Input folder to test result of assignment
+* Scripts:
 ```
 session_6_read_WFS_from_uri_check_modify_encoding_QInputDialog_Export_as_local_file.py
 session_6_1_small_example_create layer with one point feature
@@ -129,7 +138,7 @@ session_6_2_RNAP_read_WFS_from_uri_check_modify_encoding_QInputDialog_Export_as_
 session_6_3_b_RNAP_vector_determine_geometry.py
 session_6_3_c_RNAP_vector_layer_geometry_access_vertices_with_accessor_function.py
 session_6_4_RNAP_vector_layer_change_vertices_coordinates.py
-revised auxiliary_functions.py
+auxiliary_functions.py
 ```
 
 Exercise suggestion: 
@@ -148,7 +157,7 @@ Exercise suggestion:
 
 ### Part 3 (SQL)
    
-* Input: Data base `CascaisZoning.gpkg`
+* Input: Geopackage (database) `CascaisZoning.gpkg`
 * Scripts
 ```
 my_index_search_strings_in_files_regex.py
@@ -169,9 +178,9 @@ session_8_c_Cascais_example_ST_buffer_create_new_layer_add_layer_to_geopackage.p
 revised auxiliary_functions.py
  ```
  
-* Documents in 'Figures and other course documentation': Spatial Analysis Problem Cascais; Cascais Zoning Diagram Soil Productivity : diagram describing SQL query; Cascais Zoning Diagram Road Buffer: diagram describing SQL query
+* Documents in `Figures and other course documentation.zip`: Spatial Analysis Problem Cascais; Cascais Zoning Diagram Soil Productivity : diagram describing SQL query; Cascais Zoning Diagram Road Buffer: diagram describing SQL query
 
-Assignement: the Cascais Zoning Problem. The problem is described in `Spatial Analysis Problem Cascais.docx` in `Figures and other course documentation.zip`. The goal is to solve the Zoning problem for Cascais using the information in the `CascaisZoning.gpkg` geopackage available in the Inputs
+Assignement: the Cascais Zoning Problem. The problem is described in `Spatial Analysis Problem Cascais.docx` in `Figures and other course documentation.zip`. The goal is to solve the Zoning problem for Cascais using the information in the `CascaisZoning.gpkg` geopackage available in the Input folder
 
 Suggestions:
 1. Look at the script `session_1_v6_simplify_s1v4_by_calling_functions.py` to see how you can use the functions that are already defined to run tools of processing toolbox and make your code shorter and clearer;
@@ -180,7 +189,7 @@ Suggestions:
 dict_params={'OVERLAY':'my overlay layer name'}
 mylayer=my_processing_run("native:clip",'my input layer name',dict_params,'my output layer name')
 ```
-3. You can remove layers you don't need anymore with `my_remove_layer('name of the layer to be removed')`
+3. You can remove layers you don't need anymore with `my_remove_layer('name_of_the_layer_to_be_removed')`
 4. You should be able to solve the whole problem just with operations from the Processing toolbox, but you can use other options if you want
 6. Since the data are all in a geopackage, to open simple tables you don't need to go through the more complicated details needed to open a csv or txt file: you just load the layer from the geopackage as discussed in the script `session_7_a_create_geopackage_from_files.py`
 
@@ -188,8 +197,8 @@ mylayer=my_processing_run("native:clip",'my input layer name',dict_params,'my ou
 
 ### Part 1: A resolution for the Cascais Zoning problem just using operations from the processing Toolbox
 
-* Input: `CascaisZoning.gpkg`
-* Scripts: `session_8_assignment_solution_v1_Processing_Toolbox_Zoning_Cascais.py`
+* Input: `CascaisZoning.gpkg` in the Input folder
+* Script: `session_8_assignment_solution_v1_Processing_Toolbox_Zoning_Cascais.py`
 
 ### Part 2. Raster data: : (1) Read and render multiband rasters with a script; Export raster; (2) Operate on bands with raster calculator and create a legend; (3) Convert data into a numpy array and analize; (4) Identify no-data values.
 
@@ -203,7 +212,7 @@ session_9_b_raster_calculator_write_rlayer_to_tif_create_legend.py
 session_9_c_create_raster_nodatavalue_histogram_matplotlib.py
 revised auxiliary_functions.py
 ```
-* Documents in the 'Figures and other course documentation' folder:
+* Documents in `Figures and other course documentation.zip`:
     - Overview of procedures to read/write vector data and raster data with PyQGIS scripts
     - Overview of PyQGIS objects for legends of vector and raster datasets.
 
