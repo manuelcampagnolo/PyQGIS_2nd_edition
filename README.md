@@ -26,25 +26,25 @@ Extra reading:
 
 ## Session 2: Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table).
 
-* Problem: Write new solution for the problem of session 1 using temporary layers: see script in the scripts folder
-* Change symbology for the resulting layer:
-   - Input data: The layer that is the input of this new problem can be found in the Input folder
-   - The scripts can be found in the scripts folder: `session_2_v1_single_symbol_legend.py` and `session_2_v2_graduated_legend.py`
+Problemto solve: Write a new solution for the problem of session 1 using temporary layers: see script `session_1_v4_use_temporary_outputs.py`
+
+Change symbology for the resulting layer:
+  - Input data: The layer that is the input of this new problem can be found in the Input folder
+  - The scripts can be found in the scripts folder: `session_2_v1_single_symbol_legend.py` and `session_2_v2_graduated_legend.py`
 
 ## Session 3:
-### Part 1: Use dictionary to define legend 
+### Part 1: Use dictionary to define legend: create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
 
-Create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
-
-* Input data: As before, The layer that is the input for this  problem can be found in the Input folder Scripts in the scripts folder: 
+* Input data: As before, the layer that is the input for this  problem `IntExt_20.gpkg` can be found in the Input folder
+* Scripts: 
 ```
 session_2_v3_graduated_legend_with dictionary.py
 session_2_v4_define_function_for_legend_with_dictionary_as_argument.py
 session_2_v5_load_auxiliary_functions.py # For keeping auxiliary functions in separate file
 ```
-### Part 2: Re-use the auxiliary functions above for a new data set
+### Part 2: Re-use the auxiliary functions above for a new data set (NUTS)
 
-The data is the NUTS (Nomenclature of territorial units for statistics) map for Europe. The script allows to choose the NUTS level that one wants to draw. All features with the same country name will be represented with the same color in the legend. Colors are random, but the user can choose the range of RGB to create lighter or darker colors.
+The input data is the NUTS (Nomenclature of territorial units for statistics) map for Europe. The script allows to choose the NUTS level that one wants to draw. All features with the same country name will be represented with the same color in the legend. Colors are random, but the user can choose the range of RGB to create lighter or darker colors.
 
 * Input data: NUTS map from https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts. The shapefile files are available in  the Input folder.
 * Scripts in in the scripts folder: `session_3_v1_NUTS_create_dictionary_apply_legend_function.py`
