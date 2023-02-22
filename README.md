@@ -201,6 +201,7 @@ auxiliary_functions.py
 
 **SQL queries within Python script; Converting SQL query result into a new vector layer; Adding new layer to existing geopackage; Solving a zoning problem over Cascais**
 
+* Input: Geopackage (database) `CascaisZoning.gpkg`
 * Scripts
 ```
 session_8_a_v1_Cascais_first_examples_SQL_queries_.py
