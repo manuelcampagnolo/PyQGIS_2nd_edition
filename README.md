@@ -9,7 +9,17 @@ In this repository, you can find:
 - A zip file `Input.zip` (that will be refered as the **Input folder** below) that contains all vectorial geographic data sets and tables that are used in the course 
 - A zip file `Figures and other course documentation.zip` that contains figures and documents that complement the course contents below.
 - The information about each session of the course is down below:
-  -  
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-1]
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-2]
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-3]
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-4]
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-5]
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-6]
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-7]
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-8]
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-9]
+  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-10]
+  
 - [A list of useful links is included at the end of this document.](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#some-useful-links)
 
 Notice: the local organization of files in you computer should be as described below for Windows (please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
@@ -37,7 +47,9 @@ Extra reading:
    - See "Using processing algorithms from the console" from QGIS documentation
    - The QgsProject class from QGIS documentation
 
-## Session 2: Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table).
+## Session 2
+
+**Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table)**
 
 Proposed exercise: Write a new solution for the problem of session 1 using temporary layers: see script `session_1_v4_use_temporary_outputs.py`
 
@@ -45,7 +57,8 @@ Change symbology for the resulting layer:
   - Input data: The layer that is the input of this new problem can be found in the Input folder
   - The scripts can be found in the scripts folder: `session_2_v1_single_symbol_legend.py` and `session_2_v2_graduated_legend.py`
 
-## Session 3:
+## Session 3
+
 ### Part 1: Use dictionary to define legend: create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
 
 * Input: As before, the layer that is the input for this  problem `IntExt_20.gpkg` can be found in the Input folder
@@ -87,7 +100,9 @@ mylayer.setName(mylabel)
 myproject.addMapLayer(mylayer)
 ```
 
-## Session 4: Converting blocks of code into functions; modularity.  Regular expressions. Message boxes in PyQGIS.
+## Session 4
+
+**Converting blocks of code into functions; modularity.  Regular expressions. Message boxes in PyQGIS.**
 
 ### Part 1: Function to build a dictionary and another function to apply that dictionary to create a graduated symbology for the NUTS data set. Using a matplotlib colormap
 
@@ -114,7 +129,9 @@ Exercise suggestions:
 * (easy) create dictionary for the NUTS data set to define a graduated legend with 4 classes and respective labels that you choose "by hand". Then, call function `create_graduated_legend` (in `auxiliary_functions.py`) to create the legend.
 * (more complex) Create a new function, in alternative to `create_graduated_legend_dict`, but with the same arguments `values,colormap,myopacity` that uses Sturges rule to determine the approximate number of classes to consider and define classes of equal amplitude for the legend. The output of this new function should be a dictionary (analogous to the output of `create_graduated_legend_dict`). Solution of the exercise: check function `create_sturges_graduated_legend_dict` in `auxiliary_functions.py`
 
-## Session 5: Dialog boxes to interact with the user; Read simple tables (csv, txt);  Iterate through features; Create new attributes (aka fields); Compute new attributes; Join by attribute
+## Session 5
+
+**Dialog boxes to interact with the user; Read simple tables (csv, txt);  Iterate through features; Create new attributes (aka fields); Compute new attributes; Join by attribute**
 
 Proposed exercise: create a map that represents milk production for Portugal.
 
@@ -133,7 +150,9 @@ Extra exercise suggestion:
 * Create a script that reads the NUTS data set and confirms that for all features, the attribute `LEVL_CODE` is the length of the string in attribute `NUTS_ID` plus 2. Use iterator over `mylayer.getFeatures()` to check that this is true for all features.
 
 
-## Session 6: Access data sets with WFS protocol; Vector layer geometry; Create a layer from scratch using wkt strings (well known text); Determine geometry of layers; Edit coordinates of vertices and create new layer.
+## Session 6
+
+**Access data sets with WFS protocol; Vector layer geometry; Create a layer from scratch using wkt strings (well known text); Determine geometry of layers; Edit coordinates of vertices and create new layer.**
 
 * Documents. Description of geometry of features and wkt strings: singlepart and multipart, available in `Figures and other course documentation.zip`
 * Data:
@@ -153,7 +172,9 @@ auxiliary_functions.py
 Exercise suggestion: 
 * Adapt the function `round_vertices_coordinates_multipolygon` (which is in the current version of auxiliary_functions.py) and is called from the script `session_6_4_RNAP_vector_layer_change_vertices_coordinates.py` to create a new function, say, `round_vertices_coordinates_multilinestring` which has as input a MultiLineString layer. You can test it using a data set in `inputs` called `Streams.gpkg`.
 
-## Session 7: Regular expressions and file management to search for the location of a given string among all files in a folder; Vector layer geometry to  and fix validity of layers; Geopackage -- create and populate geopackage; Read layers from geopackage; Query Geopackage with SQL
+## Session 7
+
+**Regular expressions and file management to search for the location of a given string among all files in a folder; Vector layer geometry to  and fix validity of layers; Geopackage -- create and populate geopackage; Read layers from geopackage; Query Geopackage with SQL**
 
 ### Part 1 (regular expressions)
 
@@ -174,7 +195,9 @@ session_7_b_Cascais_simple_example_of_SQL_query_over_geopackage.py
 auxiliary_functions.py
 ```
 
-## Session 8: SQL queries within Python script; Converting SQL query result into a new vector layer; Adding new layer to existing geopackage; Solving a zoning problem over Cascais
+## Session 8
+
+**SQL queries within Python script; Converting SQL query result into a new vector layer; Adding new layer to existing geopackage; Solving a zoning problem over Cascais**
 
 * Scripts
 ```
@@ -201,7 +224,9 @@ mylayer=my_processing_run("native:clip",'my input layer name',dict_params,'my ou
 4. You should be able to solve the whole problem just with operations from the Processing toolbox, but you can use other options if you want
 5. Since the data are all in a geopackage, to open simple tables you don't need to go through the more complicated details needed to open a csv or txt file: you just load the layer from the geopackage as discussed in the script `session_7_a_create_geopackage_from_files.py`
 
-## Session 9: A resolution for the Cascais Zoning problem just using operations from the processing Toolbox; New script replacing some operations by one SQL query; Raster data
+## Session 9
+
+**A resolution for the Cascais Zoning problem just using operations from the processing Toolbox; New script replacing some operations by one SQL query; Raster data**
 
 ### Part 1: A resolution for the Cascais Zoning problem just using operations from the processing Toolbox
 
@@ -225,7 +250,9 @@ revised auxiliary_functions.py
     - Overview of PyQGIS objects for legends of vector and raster datasets.
 
 
-## Session 10: Manipulate raster data sets; Build histogram of raster values; Example with sklearn applied to a raster; Access on-line data
+## Session 10
+
+**Manipulate raster data sets; Build histogram of raster values; Example with sklearn applied to a raster; Access on-line data**
 
 * Data available from this [shared drive](https://drive.google.com/drive/folders/1-kuICqPc7WlYPl5GCZtsKx3VZ6DFPOB_?usp=sharing)
     - Multiband raster `Cropped_S2A-T29SNB-B2348-2021-8-22.tif` a Sentinel 2 surface reflectance stack of bands 2, 3, 4 and 8, over tile T29SNB (Algarve)
