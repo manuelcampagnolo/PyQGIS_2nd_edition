@@ -249,7 +249,7 @@ auxiliary_functions.py
 
 ---
 
-## Useful links
+## Some useful links
 
 ### Installing QGIS through OSGeo4W (windows); using OSGeo4W shell to install Python packages:
 
@@ -273,7 +273,7 @@ auxiliary_functions.py
 * Documentation for QGIS (also accessible through QGIS Python editor). [https://docs.qgis.org/3.22/en/docs/index.html]
 * QGIS Python API:  [https://qgis.org/pyqgis/master/core/index.html]
 
-### Introductory tutorials to PyQGIS:
+### Introductory tutorials on PyQGIS:
 
 * PyQGIS 101: Introduction to QGIS Python programming for non-programmers. [https://anitagraser.com/pyqgis-101-introduction-to-qgis-python-programming-for-non-programmers/]
 * Tutorial on QGIS 3 programming with Python (PyQGIS). [https://www.geodose.com/p/pyqgis.html]
