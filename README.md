@@ -8,6 +8,7 @@ In this repository, you can find:
 - The scripts used in the course: each script (python script) has a name that matches the names below.
 - A zip file `Input.zip` (that will be refered as the **Input folder** below) that contains all vectorial geographic data sets and tables that are used in the course 
 - A zip file `Figures and other course documentation.zip` that contains figures and documents that complement the course contents below.
+- A list of useful links is included at the end of this document.
 
 Notice: the local organization of files in you computer should be as described below for Windows (please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
 - input: input data sets for exercises (e.g. `C:\users\my_user\Documents\PyQGIS\input`): where input files should be stored
@@ -301,41 +302,44 @@ auxiliary_functions.py
 * [Working with Geospatial Data: An Introduction](https://www.fulcrumapp.com/blog/working-with-geodata) (SQLite and geopackage in QGIS; no PyQGIS)
 * [How do I do that in SpatialLite and SQLite](https://www.researchgate.net/profile/Arthur-Lembo/publication/313236676_How_do_I_do_that_in_SpatiaLiteSQLite_Illustrating_Classic_GIS_Tasks/links/5893493645851563f828e2de/How-do-I-do-that-in-SpatiaLite-SQLite-Illustrating-Classic-GIS-Tasks.pdf?_sg%5B0%5D=KV_noEuBaQYN_lsdLb8UHcCU0q0Qg1eb6XEsV_zS-EAJdcQ5lGHcDAp07kzuH8bY-ylR1EQmc_JzCwPeMFvO8w.sAO2zeigLecEIg79M9A8H-I8Xqnwkbd1eMEgq8M75MJIbEFy-VC2q_-NnURsSRpRZoxHXhXC8S1oj449J0l5Mw&_sg%5B1%5D=92xoHnfLzUsK1DLwsPzVTrFWy9wjdsZDvdkFL0Kcnur_fQCQSp09YG44puo5ezPLQdMA-M0KWKjbm34fx87kiuvNZ2r1nslGjaPYOxOWTbKJ.sAO2zeigLecEIg79M9A8H-I8Xqnwkbd1eMEgq8M75MJIbEFy-VC2q_-NnURsSRpRZoxHXhXC8S1oj449J0l5Mw&_iepl=) (many examples of spatial SQL queries)
 
-Layer legends:
+### Layer legends:
 
-    Categorized legend for vector layer: https://gis.stackexchange.com/questions/318474/setting-style-for-categorized-vector-in-pyqgis
+* Categorized legend for vector layer: [https://gis.stackexchange.com/questions/318474/setting-style-for-categorized-vector-in-pyqgis]
 
-Python videos by Corey Schafer (there are many more):
+### [Python Programming Beginner Tutorials by Corey Schafer](https://www.youtube.com/playlist?list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7):
 
-    Lists, Tuples, and Sets
-    Strings - Working with Textual Data
-    Dictionaries
-    Loops and iterations
-    Python comprehensions are a very natural and easy way to create lists, dicts, and sets
-    Functions
-    How to read and write to file
-    How to work with csv files using the csv module
-    Modules, import, sys.path, random, math, os, webbrowser
-    os Module
-    How to read, write, and match regular expressions with the re module
-    Working with JSON Data using the json Module
-    Datetime Module - How to work with Dates, Times, Timedeltas, and Timezones
-    Classes and Instances
-    About inheritance and how to create subclasses
-    Class Variables
-    classmethods and staticmethods
-    iterators and iterables
-    Pandas using Python.
-    Pandas DataFrame and Series objects.
-    Pandas indexes.
-    How to get started with Matplotlib.
-    Create bar charts in Matplotlib.
-    Create pie charts in Matplotlib.
-    Create histograms in Matplotlib.
-    Create scatter plots in Matplotlib.
+* Lists, Tuples, and Sets
+* Strings - Working with Textual Data
+* Dictionaries
+* Loops and iterations
+* Python comprehensions are a very natural and easy way to create lists, dicts, and sets
+* Functions
+* How to read and write to file
+* How to work with csv files using the csv module
+* Modules, import, sys.path, random, math, os, webbrowser
+* os Module
+* How to read, write, and match regular expressions with the re module
+* Working with JSON Data using the json Module
+* Datetime Module - How to work with Dates, Times, Timedeltas, and Timezones
+* Classes and Instances
+* About inheritance and how to create subclasses
+* Class Variables
+* Classmethods and staticmethods
+* iterators and iterables
+* Pandas using Python.
+* Pandas DataFrame and Series objects.
+* Pandas indexes.
+* How to get started with Matplotlib.
+* Create bar charts in Matplotlib.
+* Create pie charts in Matplotlib.
+* Create histograms in Matplotlib.
+* Create scatter plots in Matplotlib.
 
-Python Tutorial for Beginners - Learn Python in 5 Hours [FULL COURSE]
+### Python Tutorial for Beginners
+* [Learn Python in 5 Hours: TechWorld with Nana](https://www.youtube.com/watch?v=t8pPdKYpowI)
 
-GDAL: An Introduction to GDAL: https://www.youtube.com/watch?v=N_dmiQI1s24
-1st Edition of the course "Unleash QGIS with Python" (June 2021)
-Youtube channel "QGIS 3 em português": an introduction to QGIS 3 (in portuguese)
+### GDAL: 
+* An Introduction to GDAL: [https://www.youtube.com/watch?v=N_dmiQI1s24]
+
+### Youtube channel "QGIS 3 em português": 
+* [https://www.youtube.com/@qgis3emportugues]
