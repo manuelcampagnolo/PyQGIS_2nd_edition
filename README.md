@@ -9,9 +9,9 @@ In this repository, you can find:
 - A zip file `Input.zip` (that will be refered as the **Input folder** below) that contains all vectorial geographic data sets and tables that are used in the course 
 - A zip file `Figures and other course documentation.zip` that contains figures and documents that complement the course contents below.
 - The information about each session of the course is down below:
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-1]
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-2]
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-3]
+  -  (First example; using processing and history to obtain commands for the script; using variables and file paths)[https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-1]
+  -  (Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table))[https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-2]
+  -  (Modularity; creating functions to simplify and re-use scripts)[https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-3]
   -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-4]
   -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-5]
   -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-6]
@@ -58,6 +58,8 @@ Change symbology for the resulting layer:
   - The scripts can be found in the scripts folder: `session_2_v1_single_symbol_legend.py` and `session_2_v2_graduated_legend.py`
 
 ## Session 3
+
+**Modularity; creating functions to simplify and re-use scripts**
 
 ### Part 1: Use dictionary to define legend: create function with arguments layer, legend (a dictionary) and an attribute (the attribute name on which the legend is based)
 
