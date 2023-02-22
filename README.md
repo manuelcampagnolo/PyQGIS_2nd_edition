@@ -246,6 +246,8 @@ auxiliary_functions.py
 
 * Script: `session_10_d_read_datasets_wms_wfs_unzip.py`
 
+---
+
 ## Useful links
 
 ### Installing QGIS through OSGeo4W (windows); using OSGeo4W shell to install Python packages:
@@ -289,14 +291,15 @@ auxiliary_functions.py
 ### Python code examples: Hot Examples (Search Python code examples from over 1.000.000 projects). 
 * [https://python.hotexamples.com]
 
-* Geoprocessing with Python (not just in QGIS): PyGIS - Open Source Spatial Programming & Remote Sensing; geowombat; geopandas; rasterio
+### Geoprocessing with Python (not just in QGIS): 
+* [PyGIS - Open Source Spatial Programming & Remote Sensing](https://pygis.io/docs/a_intro.html); geowombat; geopandas; rasterio
 
 ### Geopackage and SQLite:
 
-* How to create and populate a geopackage in QGIS (video)
-* Load geopackage layers with PyQGIS;
-* Working with Geospatial Data: An Introduction (SQLite and geopackage in QGIS; no PyQGIS)
-* Arthur Lembo Jr: How do I do that in SpatialLite and SQLite (many examples of spatial SQL queries)
+* How to create and populate a geopackage in QGIS ([video](https://www.youtube.com/watch?v=rLLP7NImZsU))
+* [Load geopackage layers with PyQGIS](https://anitagraser.com/pyqgis-101-introduction-to-qgis-python-programming-for-non-programmers/pyqgis-101-creating-functions-to-load-geopackage-layers/)
+* [Working with Geospatial Data: An Introduction](https://www.fulcrumapp.com/blog/working-with-geodata) (SQLite and geopackage in QGIS; no PyQGIS)
+* [How do I do that in SpatialLite and SQLite](https://www.researchgate.net/profile/Arthur-Lembo/publication/313236676_How_do_I_do_that_in_SpatiaLiteSQLite_Illustrating_Classic_GIS_Tasks/links/5893493645851563f828e2de/How-do-I-do-that-in-SpatiaLite-SQLite-Illustrating-Classic-GIS-Tasks.pdf?_sg%5B0%5D=KV_noEuBaQYN_lsdLb8UHcCU0q0Qg1eb6XEsV_zS-EAJdcQ5lGHcDAp07kzuH8bY-ylR1EQmc_JzCwPeMFvO8w.sAO2zeigLecEIg79M9A8H-I8Xqnwkbd1eMEgq8M75MJIbEFy-VC2q_-NnURsSRpRZoxHXhXC8S1oj449J0l5Mw&_sg%5B1%5D=92xoHnfLzUsK1DLwsPzVTrFWy9wjdsZDvdkFL0Kcnur_fQCQSp09YG44puo5ezPLQdMA-M0KWKjbm34fx87kiuvNZ2r1nslGjaPYOxOWTbKJ.sAO2zeigLecEIg79M9A8H-I8Xqnwkbd1eMEgq8M75MJIbEFy-VC2q_-NnURsSRpRZoxHXhXC8S1oj449J0l5Mw&_iepl=) (many examples of spatial SQL queries)
 
 Layer legends:
 
