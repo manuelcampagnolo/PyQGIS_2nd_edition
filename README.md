@@ -8,14 +8,20 @@ In this repository, you can find:
 - The scripts used in the course: each script (python script) has a name that matches the names below.
 - A zip file `Input.zip` (that will be refered as the **Input folder** below) that contains all vectorial geographic data sets and tables that are used in the course 
 - A zip file `Figures and other course documentation.zip` that contains figures and documents that complement the course contents below.
-- **A list of useful links** is included at the end of this document.
+- The information about each session of the course is down below:
+  -  
+- [A list of useful links is included at the end of this document.](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#some-useful-links)
 
 Notice: the local organization of files in you computer should be as described below for Windows (please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
 - input: input data sets for exercises (e.g. `C:\users\my_user\Documents\PyQGIS\input`): where input files should be stored
 - scripts: where python scripts should go (e.g. `C:\users\my_user\Documents\PyQGIS\scripts`): where Python scripts should be stored
 - temp: temporary folder for outputs (e.g. `C:\users\my_user\Documents\PyQGIS\temp`): where intermediate and output files should be written
 
-## Session 1: First example; using processing and history to obtain commands for the script; using variables and file paths
+---
+
+## Session 1
+
+**First example; using processing and history to obtain commands for the script; using variables and file paths**
 
 * Input: Vector geografic data sets representing a road `RVFundamental.gpkg` and a protection area for wild fires `RPFGC_PPSM.gkpk`. See this map and the intended vegetation profile from Manual da Rede Primária.
 * Problem: determine two road buffers: one interior buffer within distance D of the road; one exterior buffer to fill the rest of the protection area. Both buffers need to be contained within the protection area. Then, create a single data set containing both buffers with an attribute that takes value "interior" and "exterior". See operations diagram for the problem.
