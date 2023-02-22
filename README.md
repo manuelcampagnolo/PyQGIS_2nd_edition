@@ -8,7 +8,7 @@ In this repository, you can find:
 - The scripts used in the course: each script (python script) has a name that matches the names below.
 - A zip file `Input.zip` (that will be refered as the **Input folder** below) that contains all vectorial geographic data sets and tables that are used in the course 
 - A zip file `Figures and other course documentation.zip` that contains figures and documents that complement the course contents below.
-- A list of useful links is included at the end of this document.
+- **A list of useful links** is included at the end of this document.
 
 Notice: the local organization of files in you computer should be as described below for Windows (please adapt the paths for MasOS). Data are organized in sub-folders, to be just under an arbitrary "working folder" (e.g. C:\users\my_user\Documents\PyQGIS):
 - input: input data sets for exercises (e.g. `C:\users\my_user\Documents\PyQGIS\input`): where input files should be stored
