@@ -9,16 +9,16 @@ In this repository, you can find:
 - A zip file `Input.zip` (that will be refered as the **Input folder** below) that contains all vectorial geographic data sets and tables that are used in the course 
 - A zip file `Figures and other course documentation.zip` that contains figures and documents that complement the course contents below.
 - The information about each session of the course is down below:
-  -  (First example; using processing and history to obtain commands for the script; using variables and file paths)[https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-1]
-  -  (Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table))[https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-2]
-  -  (Modularity; creating functions to simplify and re-use scripts)[https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-3]
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-4]
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-5]
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-6]
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-7]
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-8]
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-9]
-  -  [https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-10]
+  -  [First example; using processing and history to obtain commands for the script; using variables and file paths](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-1)
+  -  [Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table)](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-2)
+  -  [Modularity; creating functions to simplify and re-use scripts](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-3)
+  -  [Converting blocks of code into functions; modularity.  Regular expressions. Message boxes in PyQGIS](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-4)
+  -  [Dialog boxes to interact with the user; Read simple tables (csv, txt);  Iterate through features; Create new attributes (aka fields); Compute new attributes; Join by attribute](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-5)
+  -  [Access data sets with WFS protocol; Vector layer geometry; Create a layer from scratch using wkt strings (well known text); Determine geometry of layers; Edit coordinates of vertices and create new layer.](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-6)
+  -  [Regular expressions and file management to search for the location of a given string among all files in a folder; Vector layer geometry to  and fix validity of layers; Geopackage -- create and populate geopackage; Read layers from geopackage; Query Geopackage with SQL](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-7)
+  -  [SQL queries within Python script; Converting SQL query result into a new vector layer; Adding new layer to existing geopackage; Solving a zoning problem over Cascais](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-8)
+  -  [A resolution for the Cascais Zoning problem just using operations from the processing Toolbox; New script replacing some operations by one SQL query; Raster data](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-9)
+  -  [Manipulate raster data sets; Build histogram of raster values; Example with sklearn applied to a raster; Access on-line data](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#session-10)
   
 - [A list of useful links is included at the end of this document.](https://github.com/manuelcampagnolo/PyQGIS_2nd_edition/blob/main/README.md#some-useful-links)
 
