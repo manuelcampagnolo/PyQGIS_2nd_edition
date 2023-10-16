@@ -51,7 +51,7 @@ Extra reading:
 
 **Create layers in memory; Export a layer to file; Symbology; Renderer; Change symbol in Single Symbol (color, opacity, stroke width); Create Categorized legend; List attribute names for the layer (access attribute table)**
 
-Proposed exercise: Write a new solution for the problem of session 1 using temporary layers: see script `session_1_v4_use_temporary_outputs.py`
+Proposed exercise: Write a new solution for the problem of session 1 using temporary layers: see script [`session_1_v4_use_temporary_outputs.py`](session_1_v4_use_temporary_outputs.py)
 
 Change symbology for the resulting layer:
   - Input data: The layer that is the input of this new problem can be found in the Input folder
